@@ -1,0 +1,13 @@
+.jumbotron {
+    background-image: url("https://s3.amazonaws.com/qualtrics-www/assets/blog/wp-content/uploads/2018/08/shutterstock_356218724-2.jpg");
+    background-size: cover;
+}
+
+.jumbotron h1 {
+    color: #ffffff;
+}
+
+.lead {
+    color: #ffffff;
+    font-size: 32px;
+}
