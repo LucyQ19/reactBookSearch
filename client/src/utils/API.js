@@ -9,12 +9,12 @@ export default {
         return axios.get('/api/books');
     },
 
-    searchBooks: (title) => {
-        return axios.get('/search' + {title: title});
+    getBook: (id) => {
+        return axios.get('/api/books/' + id)
     },
 
-    addBookToDB: (bookData) => {
-        return axios.post('/api/books', bookData);
+    saveBook: (savedBooks) => {
+        return axios.post('/api/books', savedBooks);
     }, 
 
     deleteBook: (id) => {
