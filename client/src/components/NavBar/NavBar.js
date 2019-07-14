@@ -10,7 +10,7 @@ const NavBar = () => (
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
                 <a className ="nav-item nav-link active" href="/">New Search <i class="fas fa-search"></i><span class="sr-only">(current)</span></a>
-                <a className ="nav-item nav-link active" href="/">Saved Books <i class="fas fa-save"></i></a>
+                <a className ="nav-item nav-link active" href="/saved">Saved Books <i class="fas fa-save"></i></a>
             </div>
         </div>
     </nav>
