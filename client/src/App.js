@@ -10,7 +10,7 @@ import Footer from './components/Footer/Footer';
 
 class App extends Component {
   render () {
-    return () {
+    return (
       <Router>
         <div>
           <NavBar />
@@ -19,12 +19,11 @@ class App extends Component {
             <Route exact path="/" component={ Search }/>
             <Route path="/saved" component={ Saved }/>
           </Switch>
+          <Footer />
         </div>
       </Router>
-    }
+    );
   }
 }
-
-import './App.css';
 
 export default App;
