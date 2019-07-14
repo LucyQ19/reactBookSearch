@@ -5,7 +5,7 @@ export default {
         return axios.get('/api/books');
     },
 
-    searchBook: (title) => {
+    searchBooks: (title) => {
         return axios.get('/api/books/' + { title: title })
     },
 
@@ -14,6 +14,6 @@ export default {
     }, 
 
     deleteBook: (id) => {
-        return axios.delete(`/api/books/${id}`;
+        return axios.delete(`/api/books/${id}`);
     }
 };

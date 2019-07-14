@@ -22,7 +22,7 @@ class Search extends React.Component {
     handleSearchClick(e) {
         e.preventDefault();
         API.searchBooks(this.state.bookInput)
-            .the(
+            .then(
                 (response) => {
                     this.setState({bookData: response.data});
                     this.setState({bookInput: ""});
@@ -33,12 +33,16 @@ class Search extends React.Component {
     render () {
         return (
             <main>
+                <div className="container">
                 <SearchForm 
                     handleChange={this.handleChange}
                     handleSearchClick={this.handleSearchClick} />
 
+                    <br></br>
+.
                     {(this.state.bookData.length > 0)?
                     <ResultsContainer bookData={this.state.bookData} path={this.props.match.path}/> : null}
+                </div>
             </main>
         );
     }

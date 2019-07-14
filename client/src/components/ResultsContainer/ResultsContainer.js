@@ -1,5 +1,5 @@
 import React from 'react';
-import BookResult from '../BookResult.js';
+import BookResult from '../BookResult/BookResult';
 
 function ResultsContainer(props) {
     if(props.path === "/") {
@@ -12,7 +12,7 @@ function ResultsContainer(props) {
                         title={bookInfo.title}
                         authors={bookInfo.authors}
                         description={bookInfo.description}
-                        link={bookInfo.cannonicalVolumLink}
+                        link={bookInfo.canonicalVolumLink}
                         img={bookInfo.imageLinks}
                         path={props.path}
                         key={book.id}
