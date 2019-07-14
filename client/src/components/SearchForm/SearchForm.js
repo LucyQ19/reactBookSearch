@@ -10,14 +10,14 @@ function SearchForm(props) {
                     <div className="form-group">
                         <label htmlFor="bookInput" form="bookSearch" className="bookSearchLabel">Book Search: </label>
                         <input className="col-12 form-control" 
-                                input type="text"
+                                type="text"
                                 name="bookInput"
                                 id="bookInput"
                                 form="bookSearch"
                                 placeholder="Book Title"
-                                onChange={props.handleInputChange}/>
+                                onChange={(e) => props.handleChange(e)}/>
                     </div>
-                    <button type="submit" className="btn btn-outline-danger" onClick={props.handleFormSubmit}>Search <i className="fas fa-search"></i></button>
+                    <button type="submit" className="btn btn-outline-danger" onClick={(e) => props.handleSearchClick(e)}>Search <i className="fas fa-search"></i></button>
                 </form>
             </div>
         </div>
