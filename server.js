@@ -11,8 +11,15 @@ if(process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', { useNewUrlParser: true });
-
+const mongoURL = (process.env.MONGODB_URI || 'mongodb://localhost:27017/googlebooks');
+mongoose.connect(mongoURL, { useNewUrlParser: true })
+    .then(() => {
+        console.log("🗄 ==> Successfully connected to mongoDB.");
+    })
+    .catch((err) => {
+        console.log(`Error connecting to mongoDB: ${err}`);
+      });
+      
 require('./routes/apiRoutes')(app);
 
 app.listen(PORT, () => {
