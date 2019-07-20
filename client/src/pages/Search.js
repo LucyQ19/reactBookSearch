@@ -1,47 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 import SearchForm from '../components/SearchForm';
 import ResultsContainer from '../components/ResultsContainer';
 import API from "../utils/API";
 
-class Search extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            bookInput: "",
-            bookData: []
+class Search extends Component {
+    state ={
+        title: "",
+        toResults: false,
+        results: []
+    };
+
+    handleInputChange = event =>{
+        event.preventDefault();
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+    };
+
+    handleFormSubmit = event => {
+        event.preventDefault();
+
+        if(this.state.title) {
+            const title = this.state.title.trim();
+
+            API.getNewBooks(title) 
+                .then(res => {
+                    console.log(res.data.items);
+
+                    this.setState({
+                        toResults: true,
+                        results: res.data.items
+                    });
+                }).catch(err => console.log(err));
         }
-        this.handleSearchClick = this.handleSearchClick.bind(this);
-        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(e) {
-        e.preventDefault();
-        this.setState({bookInput: e.target.value})
-    }
-
-    handleSearchClick(e) {
-        e.preventDefault();
-        API.searchBooks(this.state.bookInput)
-            .then(
-                (response) => {
-                    this.setState({bookData: response.data});
-                    this.setState({bookInput: ""});
-                }
-            );
-    }
 
     render () {
         return (
             <main>
                 <div className="container">
                 <SearchForm 
-                    handleChange={this.handleChange}
-                    handleSearchClick={this.handleSearchClick} />
-
-                    <br></br>
-.
-                    {(this.state.bookData.length > 0)?
-                    <ResultsContainer bookData={this.state.bookData} path={this.props.match.path}/> : null}
+                    handleInputChange={this.handleInputChange}
+                    handleFormSubmit={this.handleFormSubmit} />
                 </div>
             </main>
         );
