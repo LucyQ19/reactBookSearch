@@ -1,3 +1,7 @@
 #footerText {
     color: #ffffff;
 }
+
+.footer {
+    flex-shrink: 0;
+}
